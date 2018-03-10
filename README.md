@@ -1,3 +1,3 @@
 # Remind Me!
 
-An appointments reminder built with Ruby
+Appointments reminder built with Ruby
