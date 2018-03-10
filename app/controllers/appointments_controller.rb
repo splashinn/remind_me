@@ -5,6 +5,9 @@ class AppointmentsController < ApplicationController
   # GET /appointments.json
   def index
     @appointments = Appointment.all
+    if @appointments.length.zero?
+      flash[:alert] = 'You have no appointments. Create one to get started!'
+    end
   end
 
   # GET /appointments/1
@@ -24,6 +27,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   # POST /appointments.json
   def create
+    Time.zone = appointment_params[:time_change]
     @appointment = Appointment.new(appointment_params)
 
     respond_to do |format|
